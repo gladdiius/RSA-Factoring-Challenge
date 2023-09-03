@@ -1,0 +1,31 @@
+#!/usr/bin/python3
+import math
+import sys
+
+
+def rsa_factor():
+    """rsa_factor function prints the factor of x to stdout.
+
+    Args:
+        ...
+    Returns:
+        bool: The return value. True for success, False otherwise.
+        """
+    with open(sys.argv[1]) as file:
+        indicator = 0
+        for data in file:
+            data = int(data)
+            sqrt = int(math.sqrt(data))
+            if data % 5 == 0:
+                factor = 5
+                factor_2 = int(data / number)
+                print("{:d}={:d}*{:d}".format(data, factor_2, factor))
+                continue
+            for number in range(sqrt, 1, -1):
+                if data % number == 0:
+                    factor = number
+                    factor_2 = int(data / number)
+                    print("{:d}={:d}*{:d}".format(data, factor_2, factor))
+                    indicator += 1
+                    break
+rsa_factor()
